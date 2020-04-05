@@ -1,2 +1,0 @@
-# Hamlet
-Created with CodeSandbox
