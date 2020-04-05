@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { Car } from "./car";
-import { CarService } from "./carservice";
+import { GameService } from "./gameservice";
+import { Game } from "./game";
 
 @Component({
   selector: "app-root",
@@ -10,9 +10,9 @@ import { CarService } from "./carservice";
 export class AppComponent {
   title = "CodeSandbox";
   x;
-  cars: any;
+  games: any;
 
-  selectedCar: Car;
+  selectedGame: Game;
 
   displayDialog: boolean;
 
@@ -24,22 +24,22 @@ export class AppComponent {
 
   sortOrder: number;
 
-  constructor(private carService: CarService) {}
+  constructor(private gameservice: GameService) {}
 
   ngOnInit() {
-    this.carService.getCarsLarge().subscribe(cars => {
-      this.cars = cars;
+    this.gameservice.getGames().subscribe(games => {
+      this.games = games;
     });
 
     this.sortOptions = [
-      { label: "Newest First", value: "!year" },
-      { label: "Oldest First", value: "year" },
-      { label: "Brand", value: "brand" }
+      { label: "Newest First", value: "!Year" },
+      { label: "Oldest First", value: "Year" },
+      { label: "Name", value: "Name" }
     ];
   }
 
-  selectCar(event: Event, car: Car) {
-    this.selectedCar = car;
+  selectCar(event: Event, game: Game) {
+    this.selectedGame = game;
     this.displayDialog = true;
     event.preventDefault();
   }
@@ -57,6 +57,6 @@ export class AppComponent {
   }
 
   onDialogHide() {
-    this.selectedCar = null;
+    this.selectedGame = null;
   }
 }

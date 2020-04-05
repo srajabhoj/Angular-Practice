@@ -2,12 +2,17 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DataViewModule } from "primeng/dataview";
-import { HttpClientModule } from "@angular/common/http";
+import { ScrollPanelModule } from "primeng/scrollpanel";
+import { TabViewModule } from "primeng/tabview";
+import { AccordionModule } from "primeng/accordion";
+import { PanelModule } from "primeng/panel";
 import { DropdownModule } from "primeng";
-
+// import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from "./app.component";
 
-import { CarService } from "./carservice";
+import { GameService } from "./gameservice";
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,10 +22,16 @@ import { CarService } from "./carservice";
     DropdownModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ScrollPanelModule,
+    TabViewModule,
+    AccordionModule,
+    PanelModule
+    // AngularFontAwesomeModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [CarService],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
